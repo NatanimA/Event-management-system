@@ -11,13 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Event.belongsTo(models.User)
+      Event.belongsTo(models.User,{
+        foreignKey:"userId"
+      })
+      Event.hasMany(models.Member,{
+        foreignKey:"eventId"
+      })
     }
   }
   Event.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING,
-    UserId: {
+    userId: {
       type:DataTypes.INTEGER,
       references: {
         model: {

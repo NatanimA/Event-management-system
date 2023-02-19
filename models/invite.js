@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Invite.belongsTo(models.User)
+      Invite.belongsTo(models.User,{
+        foreignKey:"userId"
+      })
     }
   }
   Invite.init({
