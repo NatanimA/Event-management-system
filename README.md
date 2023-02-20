@@ -8,6 +8,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [End Points](#end-points)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -26,24 +27,21 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Event Management System <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
+>  This Event Management System is built with Express, Node.js, Postgres and JWT. It provides features for planning and scheduling events, tracking schedules, managing resources, managing budget, managing guests and much more. It provides a secure and easy to use platform for the management of events. The system tracks events from start to finish and ensures successful event execution. The system also allows for custom access levels with the use of JWT, so that only authorized users can access certain parts of the system.
 
-**[your_project__name]** is a...
+**Event Management System** is a...
 
-## 🛠 Built With <a name="built-with"></a>
+## 🛠 Built With <a name="built-with" href="http://expressjs.com/">ExpressJs</a>
 
-### Tech Stack <a name="tech-stack"></a>
+### Tech Stack <a name="tech-stack"href="http://expressjs.com/">ExpressJs</a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
+> ExpressJs
+> NodeJs
+> Postgres
+> JWT
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
 
 <details>
   <summary>Server</summary>
@@ -63,21 +61,85 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Event Invites Handling**
+- **Event Creations**
+- **Filtering Latest Events**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### End Points <a name="end-points"></a>
+
+> GET All USERS
+```
+HTTP://localhost:3000/api/users
+```
+> POST Login required body {"email","password"}
+```
+HTTP://localhost:3000/api/users/login
+```
+> POST Register required body {"name","email","password"}
+```
+HTTP://localhost:3000/api/users
+```
+> DELETE Logout
+```
+HTTP://localhost:3000/api/users/logout
+```
+> PUT Update Password required body {"oldPassword","newPassword"}
+```
+HTTP://localhost:3000/api/users/password
+```
+> PUT Reset Password  required body {"name","email"}
+```
+HTTP://localhost:3000/api/users/password/reset
+```
+> GET Events
+```
+HTTP://localhost:3000/api/users/events
+```
+> POST Events required body {"name","description"}
+```
+HTTP://localhost:3000/api/users/events
+```
+
+> PUT Events required body {"name","description"}
+```
+HTTP://localhost:3000/api/users/events/:id
+```
+
+> GET Events DETAIL
+```
+HTTP://localhost:3000/api/users/events/:id
+```
+
+> POST INVITES required body {"userId","eventId"
+```
+HTTP://localhost:3000/api/users/invites
+```
+
+> GET Paginate Events
+```
+HTTP://localhost:3000/api/users/events](http://localhost:3000/api/users/events/paginate/?page=1&limit=2
+```
+
+> PUT Accept INVITES
+```
+HTTP://localhost:3000/api/users/invites
+```
+
+> Delete Reject INVITES
+```
+HTTP://localhost:3000/api/users/invites
+```
+
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
+> Project is under construction
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo Link](#)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,13 +147,28 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
+
+```
+git clone https://github.com/NatanimA/Event-management-system.git
+```
+
+```
+npm install
+```
+
+```
+npm start
+```
 
 ### Prerequisites
 
 In order to run this project you need:
+
+<ul>
+  <li><a name="NodeJs" href="https://nodejs.dev/en/">NodeJs</a></li>
+  <li><a name="Postgres" href="https://www.postgresql.org/">Postgres</a></li>
+</ul>
 
 <!--
 Example command:
@@ -105,63 +182,47 @@ Example command:
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
 ```
---->
+git clone https://github.com/NatanimA/Event-management-system.git
+```
+
+```
+npm install
+```
+
+```
+npm start
+```
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
-```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
 
-```sh
-  rails server
 ```
---->
+npm install
+```
+
+```
+npm start
+```
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
+> No tests
 
 ### Deployment
 
 You can deploy this project using:
 
-<!--
-Example:
-
-```sh
-
-```
- -->
+> No Deployments
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -171,17 +232,11 @@ Example:
 
 > Mention all of the collaborators of this project.
 
-👤 **Author1**
+👤 **Natanim Abesha**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@NatanimA](https://github.com/NatanimA)
+- LinkedIn: [@natanim-abesha](https://linkedin.com/in/natanim-abesha)
+- Twitter: [@Natanim_](https://twitter.com/Natanim_)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -191,9 +246,8 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **Events Link Sharing**
+- [ ] **Events Canceling**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
