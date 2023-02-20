@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 const verify = require('../verifyToken')
 const { registerUser, authenticateUser, logoutUser, updatePassword, resetPassword,
-  userEvents, createEvents, updateEvent, detailEvent, createInvite } = require('../controllers/user')
+  userEvents, createEvents, updateEvent, detailEvent,
+  createInvite,acceptInvite,rejectInvite,searchEvents, paginateEvents } = require('../controllers/user')
 
 router.route('/')
   .post( async (req,res) => {
@@ -35,6 +36,14 @@ router.route('/events')
     return await createEvents(req,res)
   });
 
+router.get('/events/search',verify,async(req,res) => {
+  return await searchEvents(req,res)
+})
+
+router.get('/events/paginate', verify, async (req, res) => {
+  return await paginateEvents(req, res)
+})
+
 router.route('/events/:id')
   .put(verify,async(req,res) => {
     return await updateEvent(req,res)
@@ -47,7 +56,16 @@ router.route('/events/:id')
 router.route('/invites')
   .post(verify,async(req,res) => {
     return await createInvite(req,res)
+  });
+
+router.route('/invites/:id')
+  .put(verify, async (req, res) => {
+    return await acceptInvite(req, res)
   })
+
+  .delete(verify, async (req, res) => {
+    return await rejectInvite(req, res)
+  });
 
 
 module.exports = router;

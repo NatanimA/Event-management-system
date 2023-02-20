@@ -243,5 +243,68 @@ const createInvite = async(req,res) => {
 
 }
 
+const acceptInvite = async(req,res) => {
+    try{
+        const invite = await Invite.findOne({
+            where: {
+                id: req.params.id,
+                userId: req.user.id
+            }
+        })
+        if (!invite) return res.status(400).send("Event could not be found");
+        const newMember = await Member.create({
+            eventId: invite.eventId,
+            userId: req.user.id
+        })
+        await invite.destroy()
+        return res.status(201).send(newMember)
+    }catch(err){
+        return res.status(500).send(err)
+    }
+
+}
+
+const rejectInvite = async(req,res) => {
+    try{
+        const invite = await Invite.findOne({
+            where: {
+                id: req.params.id,
+                userId: req.user.id
+            }
+        })
+        if (!invite) return res.status(400).send("Event could not be found");
+        await invite.destroy()
+        return res.status(204).send("Reject success")
+    }catch(err){
+        return res.status(500).send(err)
+    }
+}
+
+const searchEvents = async(req,res) => {
+    try{
+        const events = await Event.findAll({
+            where:{
+                name:{
+                    [Op.like]: `${req.body.name}`
+                }
+            }
+        })
+        return res.status(200).send(events)
+    }catch(err){
+        return res.status(500).send(err)
+    }
+
+}
+
+const paginateEvents = async(req,res) => {
+    try{
+        const events = await Event.findAll({ offset: req.query.page, limit: req.query.limit, order: [['createdAt', 'DESC']] })
+        return res.status(200).send(events)
+    }catch(err){
+        return res.status(500).send(err)
+    }
+}
+
 module.exports = { registerUser, authenticateUser, logoutUser, updatePassword,
-    resetPassword, userEvents, createEvents, updateEvent, detailEvent, createInvite }
+    resetPassword, userEvents, createEvents, updateEvent, detailEvent, createInvite,
+    acceptInvite,rejectInvite,searchEvents,paginateEvents }
