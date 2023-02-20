@@ -8,6 +8,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [End Points](#end-points)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -65,6 +66,72 @@
 - **Filtering Latest Events**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### End Points <a name="end-points"></a>
+
+> GET All USERS
+```
+HTTP://localhost:3000/api/users
+```
+> POST Login required body {"email","password"}
+```
+HTTP://localhost:3000/api/users/login
+```
+> POST Register required body {"name","email","password"}
+```
+HTTP://localhost:3000/api/users
+```
+> DELETE Logout
+```
+HTTP://localhost:3000/api/users/logout
+```
+> PUT Update Password required body {"oldPassword","newPassword"}
+```
+HTTP://localhost:3000/api/users/password
+```
+> PUT Reset Password  required body {"name","email"}
+```
+HTTP://localhost:3000/api/users/password/reset
+```
+> GET Events
+```
+HTTP://localhost:3000/api/users/events
+```
+> POST Events required body {"name","description"}
+```
+HTTP://localhost:3000/api/users/events
+```
+
+> PUT Events required body {"name","description"}
+```
+HTTP://localhost:3000/api/users/events/:id
+```
+
+> GET Events DETAIL
+```
+HTTP://localhost:3000/api/users/events/:id
+```
+
+> POST INVITES required body {"userId","eventId"
+```
+HTTP://localhost:3000/api/users/invites
+```
+
+> GET Paginate Events
+```
+HTTP://localhost:3000/api/users/events](http://localhost:3000/api/users/events/paginate/?page=1&limit=2
+```
+
+> PUT Accept INVITES
+```
+HTTP://localhost:3000/api/users/invites
+```
+
+> Delete Reject INVITES
+```
+HTTP://localhost:3000/api/users/invites
+```
+
 
 <!-- LIVE DEMO -->
 
